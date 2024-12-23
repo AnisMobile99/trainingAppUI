@@ -22,13 +22,13 @@ module.exports = {
   ignorePatterns: ["!**/.server", "!**/.client"],
 
   // Base config
-  extends: ["eslint:recommended"],
+  extends: ["eslint:recommended", "prettier"],
 
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
+      plugins: ["react", "jsx-a11y", "react-hooks"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -47,6 +47,10 @@ module.exports = {
         "import/resolver": {
           typescript: {},
         },
+      },
+      rules: {
+        "react/prop-types": "off", // Disable prop-types as TypeScript is used
+        "react/react-in-jsx-scope": "off", // Not needed with React 17+
       },
     },
 
@@ -70,7 +74,18 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript",
+        "prettier",
       ],
+      rules: {
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+          },
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+      },
     },
 
     // Node
