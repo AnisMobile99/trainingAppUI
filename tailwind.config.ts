@@ -28,11 +28,16 @@ export default {
       },
       animation: {
         blink: "blink 0.3s ease-in-out", // Animation personnalisée
+        "bounce-down": "bounceDown 1.5s infinite", // Animation personnalisée
       },
       keyframes: {
         blink: {
           "0%, 100%": { opacity: 0 }, // Départ et arrivée avec opacity 0
           "50%": { opacity: 1 }, // Milieu avec opacity 1
+        },
+        bounceDown: {
+          "0%, 100%": { transform: "translateY(0)" }, // Position initiale et finale
+          "50%": { transform: "translateY(10px)" }, // Descend légèrement
         },
       },
     },

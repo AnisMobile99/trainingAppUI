@@ -32,7 +32,7 @@ export default function IndexPage() {
 
           {/* Image uniquement en version Desktop */}
           {!isMobile && (
-            <div className="absolute right-[-250px] top-[-150px]">
+            <div className="absolute right-[-320px] top-[-180px]">
               <img
                 src="https://hellocare.com/img/consultation-en-ligne.png"
                 alt="Médecin"
@@ -43,11 +43,11 @@ export default function IndexPage() {
 
           {/* Image en version Mobile */}
           {isMobile && (
-            <div className="w-full mt-6 flex justify-center">
+            <div className="w-full mt-6 flex justify-end">
               <img
                 src="https://hellocare.com/img/consultation-en-ligne.png"
                 alt="Médecin"
-                className="w-full h-[300px] object-cover rounded-lg"
+                className="w-full "
               />
             </div>
           )}
